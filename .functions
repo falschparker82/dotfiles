@@ -169,3 +169,47 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# Generate me a password
+function pw() {
+	openssl rand -base64 30 | tr -d '/+=' | head -c16 | pbcopy
+	echo "Password pasted to clipboard!"
+}
+
+### my own ff function that jumps into the correct path
+
+function folderfind2() {
+	IFS=$'\n'
+	folders=$(mdfind -name $@)
+	for f in $folders; do
+	    if [[ -d $f ]]; then
+	        echo $f
+	    fi
+	done
+}
+
+function ff() {
+	folderresult=$(folderfind2 $@)
+	folderlines=$(echo -n "$folderresult" | grep -c '^')
+	if [ $folderlines -eq 1 ]
+		then
+			cd "$folderresult"
+	elif [ $folderlines -gt 1 ]
+		then
+			cd "$(folderfind2 $@ | fzf)"
+	else
+		echo "folder not found."
+	fi
+}
+
+function folderfind() {
+	cd "$(folderfind2 $@ | fzf)"
+}
+
+# clean my json in an editor
+function wclean() { curl $1 | jq . > /tmp/test && subl /tmp/test;}
+
+# heat up my laptop
+function stresstest() { yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &  yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &  yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & }
+function heat() { yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &  yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &  yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & }
+function warm() { yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &  yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null &  yes > /dev/null & yes > /dev/null & yes > /dev/null & yes > /dev/null & }

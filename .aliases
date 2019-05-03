@@ -9,10 +9,15 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
+alias db="cd ~/Documents/Dropbox"
+alias do="cd ~/Documents"
+alias code="cd ~/Documents/code"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
+# go into my gopath
+alias gopath="cd ~/go/src"
+
 alias g="git"
 
 # Detect which `ls` flavor is in use
@@ -149,3 +154,7 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# generate me a password on the command line and copy to clipboard
+alias pw='openssl rand -base64 15 | tr "+/" "__" | tr -d "\n" | tr -d "\r" | pbcopy;echo "copied to clipboard!"'
+
