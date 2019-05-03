@@ -11,7 +11,7 @@ alias -- -="cd -"
 # Shortcuts
 alias db="cd ~/Documents/Dropbox"
 alias doc="cd ~/Documents"
-alias code="cd ~/Documents/code"
+alias codepath="cd ~/Documents/code"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
