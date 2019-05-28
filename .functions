@@ -180,7 +180,7 @@ function pw() {
 
 function folderfind2() {
 	IFS=$'\n'
-	folders=$(mdfind -name $@)
+	folders=$(mdfind -name $@ | fgrep $@)
 	for f in $folders; do
 	    if [[ -d $f ]]; then
 	        echo $f
