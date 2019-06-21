@@ -37,3 +37,6 @@ export MANPAGER='less -X';
 export GPG_TTY=$(tty);
 
 export ENVIRONMENT="develop"
+
+# important for recmomender performance
+export OPENBLAS_NUM_THREADS=1
